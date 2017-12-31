@@ -5,7 +5,7 @@
     "tasks": [
         {
             "label": "build",
-            "command": "dotnet build .\\FSPerf",
+            "command": "dotnet build .\\src",
             "type": "shell",
             "group": "build",
             "presentation": {
@@ -15,7 +15,7 @@
         },
         {
             "label": "Run Benchmark",
-            "command": "dotnet run -c Release --project .\\FSPerf\\FSPerf.fsproj",
+            "command": "dotnet run -c Release --project .\\src\\FSPerfTests.fsproj",
             "type": "shell",
             "problemMatcher": "$msCompile"
         }
