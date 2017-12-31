@@ -1,10 +1,7 @@
 module Generators
 
 open BenchmarkDotNet.Attributes
-open BenchmarkDotNet.Running
-open BenchmarkDotNet.Diagnosers
 
-[<MemoryDiagnoser>]
 type Generators () =
 
     [<Benchmark>]
@@ -93,9 +90,3 @@ type Generators () =
             for i in [1..12] do
                 yield i
         |]
-
-[<EntryPoint>]
-let main _ =
-    BenchmarkRunner.Run<Generators> ()
-    |> ignore
-    0 // return an integer exit code
