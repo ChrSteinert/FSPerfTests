@@ -46,6 +46,16 @@ Creation of maps from different types of inputs - lists, arrays and sequences - 
 |      CreateMapOrderedSeq|  3.362 ms|  0.0662 ms|  0.1574 ms|  3.333 ms|    0.96|      0.11 |
 |    CreateMapUnorderedSeq|  3.492 ms|  0.0696 ms|  0.0953 ms|  3.499 ms|    1.00|      0.10 |
 
+## Sets
+
+Creation of sets from different types of inputs - lists, arrays and sequences - ordered and unordered.
+
+|         Method |     Mean |     Error |    StdDev | Scaled | ScaledSD |
+|--------------- |---------:|----------:|----------:|-------:|---------:|
+| CreateSetArray | 2.988 ms | 0.0594 ms | 0.0751 ms |   1.00 |     0.00 |
+|  CreateSetList | 2.907 ms | 0.0563 ms | 0.0752 ms |   0.97 |     0.03 |
+|   CreateSetSeq | 2.995 ms | 0.0587 ms | 0.0861 ms |   1.00 |     0.04 |
+
 ## Running Benchmarks
 
 To run all benchmarks from VS Code simply use the task `Run Benchmark`.

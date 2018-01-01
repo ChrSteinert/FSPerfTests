@@ -7,6 +7,7 @@
     <Compile Include="Generators.fs" />
     <Compile Include="Iterators.fs" />
     <Compile Include="Maps.fs" />
+    <Compile Include="Sets.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
   <Import Project="..\.paket\Paket.Restore.targets" />
