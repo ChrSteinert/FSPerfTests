@@ -37,13 +37,14 @@ Iterator benchmarks take different ways of accessing values in an array, list, o
 
 Creation of maps from different types of inputs - lists, arrays and sequences - ordered and unordered.
 
-|                   Method|      Mean|      Error|     StdDev|    Median|  Scaled|  ScaledSD
-|    CreateMapOrderedArray|  3.547 ms|  0.1266 ms|  0.3733 ms|  3.567 ms|    1.00|      0.00
-|  CreateMapUnorderedArray|  3.638 ms|  0.1378 ms|  0.4019 ms|  3.467 ms|    1.04|      0.15
-|     CreateMapOrderedList|  3.138 ms|  0.0625 ms|  0.1220 ms|  3.108 ms|    0.89|      0.10
-|   CreateMapUnorderedList|  3.461 ms|  0.1025 ms|  0.2925 ms|  3.355 ms|    0.99|      0.13
-|      CreateMapOrderedSeq|  3.362 ms|  0.0662 ms|  0.1574 ms|  3.333 ms|    0.96|      0.11
-|    CreateMapUnorderedSeq|  3.492 ms|  0.0696 ms|  0.0953 ms|  3.499 ms|    1.00|      0.10
+|                   Method|      Mean|      Error|     StdDev|    Median|  Scaled|  ScaledSD |
+|-------------------------|---------:|----------:|----------:|---------:|-------:|----------:|
+|    CreateMapOrderedArray|  3.547 ms|  0.1266 ms|  0.3733 ms|  3.567 ms|    1.00|      0.00 |
+|  CreateMapUnorderedArray|  3.638 ms|  0.1378 ms|  0.4019 ms|  3.467 ms|    1.04|      0.15 |
+|     CreateMapOrderedList|  3.138 ms|  0.0625 ms|  0.1220 ms|  3.108 ms|    0.89|      0.10 |
+|   CreateMapUnorderedList|  3.461 ms|  0.1025 ms|  0.2925 ms|  3.355 ms|    0.99|      0.13 |
+|      CreateMapOrderedSeq|  3.362 ms|  0.0662 ms|  0.1574 ms|  3.333 ms|    0.96|      0.11 |
+|    CreateMapUnorderedSeq|  3.492 ms|  0.0696 ms|  0.0953 ms|  3.499 ms|    1.00|      0.10 |
 
 ## Running Benchmarks
 
