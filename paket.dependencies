@@ -3,3 +3,4 @@ source https://www.nuget.org/api/v2
 framework: netcoreapp2.0
 nuget FSharp.Core
 nuget BenchmarkDotNet
+nuget FSharpx.Extras
