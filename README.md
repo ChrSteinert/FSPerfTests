@@ -33,6 +33,16 @@ Iterator benchmarks take different ways of accessing values in an array, list, o
 |    ListIterateSeq | 33.716 us | 0.6896 us | 0.6450 us |  13.47 |     0.28 |
 |     SeqIterateSeq | 24.692 us | 0.1712 us | 0.1518 us |   9.86 |     0.11 |
 
+## Options
+
+Using plain values or the option module.
+
+|            Method |      Mean |     Error |    StdDev | Scaled | ScaledSD |
+|------------------ |----------:|----------:|----------:|-------:|---------:|
+|             Plain |  47.23 us | 0.7356 us | 0.6881 us |   1.00 |     0.00 |
+|         WithSomes | 112.46 us | 1.8855 us | 1.6714 us |   2.38 |     0.05 |
+| WithNonesAndSomes | 111.50 us | 1.3726 us | 1.0716 us |   2.36 |     0.04 |
+
 ## Maps
 
 Creation of maps from different types of inputs - lists, arrays and sequences - ordered and unordered.
