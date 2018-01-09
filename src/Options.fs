@@ -1,8 +1,9 @@
 module Options
 
 open BenchmarkDotNet.Attributes
+open System.Text.RegularExpressions
 
-type Options () =
+type OptionValues () =
 
     let values = [ 1..2000 ]
     let someValues = 
@@ -38,5 +39,44 @@ type Options () =
             match c with
             | Some c -> c + 1 |> Some
             | None -> None )            
+
+type OptionReferences () =    
+    let references = 
+        [ 
+            for _ in 1..2000 do
+                yield Match.Empty
+        ]
     
-        
+    let someReferences = 
+        [
+            for _ in 1..2000 do
+                yield Match.Empty |> Some
+        ]
+
+    let mixedReferences = 
+        [
+            let rnd = System.Random ()
+            for _ in 1..2000 do
+                yield if rnd.Next(0, 101) > 50 then None else Match.Empty |> Some
+        ]
+
+    [<Benchmark(Baseline = true)>]
+    member __.Plain () =
+        references
+        |> List.map (fun c -> c.Value)
+
+    [<Benchmark>]
+    member __.WithSomes () =
+        someReferences
+        |> List.map (fun c -> 
+            match c with
+            | Some c -> c.Value |> Some
+            | None -> None )
+
+    [<Benchmark>]
+    member __.WithNonesAndSomes () =
+        mixedReferences
+        |> List.map (fun c -> 
+            match c with
+            | Some c -> c.Value |> Some
+            | None -> None )                    

@@ -37,11 +37,21 @@ Iterator benchmarks take different ways of accessing values in an array, list, o
 
 Using plain values or the option module.
 
-|            Method |      Mean |     Error |    StdDev | Scaled | ScaledSD |
-|------------------ |----------:|----------:|----------:|-------:|---------:|
-|             Plain |  47.23 us | 0.7356 us | 0.6881 us |   1.00 |     0.00 |
-|         WithSomes | 112.46 us | 1.8855 us | 1.6714 us |   2.38 |     0.05 |
-| WithNonesAndSomes | 111.50 us | 1.3726 us | 1.0716 us |   2.36 |     0.04 |
+### Values
+
+|            Method |     Mean |     Error |    StdDev | Scaled | ScaledSD |
+|------------------ |---------:|----------:|----------:|-------:|---------:|
+|             Plain | 33.56 us | 0.8040 us | 0.6713 us |   1.00 |     0.00 |
+|         WithSomes | 76.11 us | 0.6257 us | 0.5546 us |   2.27 |     0.05 |
+| WithNonesAndSomes | 74.60 us | 0.8899 us | 0.8324 us |   2.22 |     0.05 |
+
+### References
+
+|            Method |     Mean |     Error |    StdDev | Scaled | ScaledSD |
+|------------------ |---------:|----------:|----------:|-------:|---------:|
+|             Plain | 56.23 us | 0.3614 us | 0.3380 us |   1.00 |     0.00 |
+|         WithSomes | 89.58 us | 0.8282 us | 0.7747 us |   1.59 |     0.02 |
+| WithNonesAndSomes | 81.37 us | 0.7442 us | 0.6961 us |   1.45 |     0.01 |
 
 ## Maps
 
