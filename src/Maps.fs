@@ -29,15 +29,13 @@ type Maps () =
     
     let orderedSeq =
         seq {
-            for i in 1..2000 do
-                yield i, i
+            yield orderedArray
         }
 
     let unorderedSeq =
         let rnd = System.Random ()
         seq {
-            for _ in 1..2000 do
-                yield rnd.Next (), rnd.Next ()
+            yield! unorderedArray
         }
 
     [<Benchmark(Baseline = true)>]
