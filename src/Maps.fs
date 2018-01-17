@@ -29,7 +29,7 @@ type Maps () =
     
     let orderedSeq =
         seq {
-            yield orderedArray
+            yield! orderedArray
         }
 
     let unorderedSeq =
