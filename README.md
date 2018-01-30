@@ -77,6 +77,15 @@ Creation of sets from different types of inputs - lists, arrays and sequences - 
 |  CreateSetList | 2.907 ms | 0.0563 ms | 0.0752 ms |   0.97 |     0.03 |
 |   CreateSetSeq | 2.995 ms | 0.0587 ms | 0.0861 ms |   1.00 |     0.04 |
 
+## Results vs. Exception Messages
+
+Using `Result<'TSuccess, 'TError>` vs. catching `Exception`s and using the message.
+
+|          Method |         Mean |        Error |       StdDev | Scaled | ScaledSD |
+|---------------- |-------------:|-------------:|-------------:|-------:|---------:|
+| CatchExceptions | 108,759.6 us | 2,160.388 us | 2,218.559 us | 775.37 |    24.01 |
+|       UseResult |     140.3 us |     2.736 us |     3.460 us |   1.00 |     0.00 |
+
 ## Running Benchmarks
 
 To run all benchmarks from VS Code simply use the task `Run Benchmark`.
