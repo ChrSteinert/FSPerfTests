@@ -81,10 +81,12 @@ Creation of sets from different types of inputs - lists, arrays and sequences - 
 
 Using `Result<'TSuccess, 'TError>` vs. catching `Exception`s and using the message.
 
-|          Method |         Mean |        Error |       StdDev | Scaled | ScaledSD |
-|---------------- |-------------:|-------------:|-------------:|-------:|---------:|
-| CatchExceptions | 108,759.6 us | 2,160.388 us | 2,218.559 us | 775.37 |    24.01 |
-|       UseResult |     140.3 us |     2.736 us |     3.460 us |   1.00 |     0.00 |
+|                   Method |         Mean |        Error |       StdDev | Scaled | ScaledSD |
+|------------------------- |-------------:|-------------:|-------------:|-------:|---------:|
+|          CatchExceptions | 122,486.5 us | 2,436.154 us | 5,646.158 us | 691.56 |    35.73 |
+| CatchSelfThrownException |  72,435.1 us | 1,386.523 us | 1,541.116 us | 408.97 |    12.97 |
+|                UseResult |     177.2 us |     3.508 us |     4.436 us |   1.00 |     0.00 |
+|          UseStructResult |     177.1 us |     3.433 us |     3.673 us |   1.00 |     0.03 |
 
 ## Running Benchmarks
 
