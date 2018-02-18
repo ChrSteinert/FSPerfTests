@@ -91,3 +91,7 @@ Using `Result<'TSuccess, 'TError>` vs. catching `Exception`s and using the messa
 ## Running Benchmarks
 
 To run all benchmarks from VS Code simply use the task `Run Benchmark`.
+
+### CLI Arguments
+
+Specific benchmarks can be run with specific CLI arguments. See `--help` for all available switches.
