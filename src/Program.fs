@@ -1,22 +1,41 @@
 module FSPerf
 
+open Argu
+
 open BenchmarkDotNet.Running
 open BenchmarkDotNet.Exporters
+open ResultsVsExceptions
+open System
 
+type CliArguments =
+| Generators
+| Iterators
+| Maps
+| Sets
+| Options
+| ResultsVsExceptions
+    interface IArgParserTemplate 
+        with
+            member this.Usage =
+                match this with
+                | c -> "run " + c.ToString () + " benchmarks."
 [<EntryPoint>]
 let main _ =
-    let summary = BenchmarkRunner.Run<Generators.Generators> ()
-    let summary2 = BenchmarkRunner.Run<Iterators.Iterators> ()
-    let summary3 = BenchmarkRunner.Run<Maps.Maps> ()
-    let summary4 = BenchmarkRunner.Run<Sets.Sets> ()
-    let summary5 = BenchmarkRunner.Run<Options.OptionValues> ()
-    let summary6 = BenchmarkRunner.Run<Options.OptionReferences> ()
-    let summary7 = BenchmarkRunner.Run<ResultsVsExceptions.ResultsVsExceptions> ()
-    AsciiDocExporter.Default.ExportToLog(summary, BenchmarkDotNet.Loggers.ConsoleLogger.Default)
-    AsciiDocExporter.Default.ExportToLog(summary2, BenchmarkDotNet.Loggers.ConsoleLogger.Default)
-    AsciiDocExporter.Default.ExportToLog(summary3, BenchmarkDotNet.Loggers.ConsoleLogger.Default)
-    AsciiDocExporter.Default.ExportToLog(summary4, BenchmarkDotNet.Loggers.ConsoleLogger.Default)
-    AsciiDocExporter.Default.ExportToLog(summary5, BenchmarkDotNet.Loggers.ConsoleLogger.Default)
-    AsciiDocExporter.Default.ExportToLog(summary6, BenchmarkDotNet.Loggers.ConsoleLogger.Default)
-    AsciiDocExporter.Default.ExportToLog(summary7, BenchmarkDotNet.Loggers.ConsoleLogger.Default)
+    let parser = ArgumentParser.Create<CliArguments> (errorHandler = ProcessExiter(colorizer = function ErrorCode.HelpText -> None | _ -> Some ConsoleColor.Red))
+    let args = parser.ParseCommandLine ()
+    let benchmarks =
+        args.GetAllResults () 
+        |> List.fold (fun acc arg -> 
+            match arg with
+            | Generators -> BenchmarkRunner.Run<Generators.Generators> () :: acc
+            | Iterators -> BenchmarkRunner.Run<Iterators.Iterators> () :: acc
+            | Maps -> BenchmarkRunner.Run<Maps.Maps> () :: acc
+            | Sets -> BenchmarkRunner.Run<Sets.Sets> () :: acc
+            | Options -> BenchmarkRunner.Run<Options.OptionValues> () :: BenchmarkRunner.Run<Options.OptionReferences> () :: acc
+            | ResultsVsExceptions -> BenchmarkRunner.Run<ResultsVsExceptions.ResultsVsExceptions> () :: acc
+        ) []
+    if not (List.isEmpty benchmarks) then
+        benchmarks |> List.iter (fun summary -> AsciiDocExporter.Default.ExportToLog(summary, BenchmarkDotNet.Loggers.ConsoleLogger.Default))
+    else
+        parser.PrintUsage "" |> printfn "%s"
     0

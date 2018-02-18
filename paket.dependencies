@@ -4,3 +4,8 @@ framework: netcoreapp2.0
 nuget FSharp.Core
 nuget BenchmarkDotNet
 nuget FSharpx.Extras
+nuget Argu
+nuget LinqFaster
+nuget LinqFaster.SIMD
+nuget LinqFaster.Parallel
+nuget LinqFaster.SIMD.Parallel

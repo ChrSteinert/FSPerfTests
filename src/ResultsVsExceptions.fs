@@ -44,7 +44,7 @@ type ResultsVsExceptions () =
         |> List.map (fun c -> 
             match c with
             | Some c -> c |> Ok
-            | None -> "No value!" |> Error
+            | None -> "No value!" |> Result.Error
         )
 
     [<Benchmark>]
