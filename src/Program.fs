@@ -14,6 +14,7 @@ type CliArguments =
 | Sets
 | Options
 | ResultsVsExceptions
+| SubArrays
     interface IArgParserTemplate 
         with
             member this.Usage =
@@ -33,6 +34,7 @@ let main _ =
             | Sets -> BenchmarkRunner.Run<Sets.Sets> () :: acc
             | Options -> BenchmarkRunner.Run<Options.OptionValues> () :: BenchmarkRunner.Run<Options.OptionReferences> () :: acc
             | ResultsVsExceptions -> BenchmarkRunner.Run<ResultsVsExceptions.ResultsVsExceptions> () :: acc
+            | SubArrays -> BenchmarkRunner.Run<SubArrays.SubArrays> () :: acc
         ) []
     if not (List.isEmpty benchmarks) then
         benchmarks |> List.iter (fun summary -> AsciiDocExporter.Default.ExportToLog(summary, BenchmarkDotNet.Loggers.ConsoleLogger.Default))

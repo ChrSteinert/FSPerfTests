@@ -10,6 +10,7 @@
     <Compile Include="Sets.fs" />
     <Compile Include="Options.fs" />
     <Compile Include="ResultsVsExceptions.fs" />
+    <Compile Include="SubArrays.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
   <Import Project="..\.paket\Paket.Restore.targets" />
