@@ -88,6 +88,17 @@ Using `Result<'TSuccess, 'TError>` vs. catching `Exception`s and using the messa
 |                UseResult |     177.2 us |     3.508 us |     4.436 us |   1.00 |     0.00 |
 |          UseStructResult |     177.1 us |     3.433 us |     3.673 us |   1.00 |     0.03 |
 
+## Sub Arrays
+
+Create an array that is a partial copy of the source array.
+
+|             Method |       Mean |     Error |    StdDev | Scaled | ScaledSD |
+|------------------- |-----------:|----------:|----------:|-------:|---------:|
+|            Indexer | 1,078.7 ns | 19.829 ns | 18.548 ns |   1.05 |     0.02 |
+| CopyCreateInstance |   175.3 ns |  3.714 ns |  3.474 ns |   0.17 |     0.00 |
+|     CopyZeroCreate |   139.9 ns |  2.787 ns |  2.862 ns |   0.14 |     0.00 |
+|            ForCopy | 1,031.5 ns | 17.919 ns | 15.885 ns |   1.00 |     0.00 |
+
 ## Running Benchmarks
 
 To run all benchmarks from VS Code simply use the task `Run Benchmark`.
