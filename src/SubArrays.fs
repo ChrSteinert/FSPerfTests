@@ -15,7 +15,12 @@ type SubArrays () =
         array.[5000..5999]
 
     [<Benchmark>]
-    member __.Copy () =
+    member __.CopyCreateInstance () =
+        let target = System.Array.CreateInstance(typeof<byte>, 1000)
+        System.Array.Copy(array, 5000, target, 0, 1000)
+
+    [<Benchmark>]
+    member __.CopyZeroCreate () =
         let target : byte array = Array.zeroCreate 1000
         System.Array.Copy(array, 5000, target, 0, 1000)
 
