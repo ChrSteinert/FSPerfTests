@@ -38,6 +38,40 @@ type Maps () =
             yield! unorderedArray
         }
 
+
+    [<Benchmark()>]
+    member __.CreateDictOrderedArray () =
+        orderedArray 
+        |> dict
+
+    [<Benchmark>]
+    member __.CreateDictUnorderedArray () =
+        unorderedArray 
+        |> dict
+
+    [<Benchmark>]
+    member __.CreateDictOrderedList () =
+        orderedList
+        |> dict
+
+    [<Benchmark>]
+    member __.CreateDictUnorderedList () =
+        unorderedList
+        |> dict                        
+
+    [<Benchmark>]
+    member __.CreateDictOrderedSeq () =
+        orderedSeq
+        |> dict
+
+    [<Benchmark>]
+    member __.CreateDictUnorderedSeq () =
+        unorderedSeq
+        |> dict
+
+
+
+
     [<Benchmark(Baseline = true)>]
     member __.CreateMapOrderedArray () =
         orderedArray 
@@ -67,3 +101,4 @@ type Maps () =
     member __.CreateMapUnorderedSeq () =
         unorderedSeq
         |> Map                                
+
