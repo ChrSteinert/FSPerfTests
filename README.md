@@ -55,16 +55,22 @@ Using plain values or the option module.
 
 ## Maps
 
-Creation of maps from different types of inputs - lists, arrays and sequences - ordered and unordered.
+Creation of `Map`s and `dict`s from different types of inputs - lists, arrays and sequences - ordered and unordered.
 
-|                  Method |     Mean |     Error |    StdDev | Scaled | ScaledSD |
-|------------------------ |---------:|----------:|----------:|-------:|---------:|
-|   CreateMapOrderedArray | 3.068 ms | 0.0178 ms | 0.0139 ms |   1.00 |     0.00 |
-| CreateMapUnorderedArray | 3.261 ms | 0.0581 ms | 0.0515 ms |   1.06 |     0.02 |
-|    CreateMapOrderedList | 3.055 ms | 0.0442 ms | 0.0392 ms |   1.00 |     0.01 |
-|  CreateMapUnorderedList | 3.144 ms | 0.0498 ms | 0.0466 ms |   1.02 |     0.02 |
-|     CreateMapOrderedSeq | 3.119 ms | 0.0454 ms | 0.0425 ms |   1.02 |     0.01 |
-|   CreateMapUnorderedSeq | 3.224 ms | 0.0538 ms | 0.0449 ms |   1.05 |     0.01 |
+|                   Method |       Mean |      Error |     StdDev | Scaled | ScaledSD |
+|------------------------- |-----------:|-----------:|-----------:|-------:|---------:|
+|   CreateDictOrderedArray |   140.3 us |   2.521 us |   4.609 us |   0.06 |     0.00 |
+| CreateDictUnorderedArray |   161.3 us |   1.757 us |   1.372 us |   0.07 |     0.00 |
+|    CreateDictOrderedList |   160.8 us |   5.270 us |  15.121 us |   0.07 |     0.01 |
+|  CreateDictUnorderedList |   170.7 us |   3.161 us |   2.957 us |   0.08 |     0.00 |
+|     CreateDictOrderedSeq |   137.2 us |   2.235 us |   1.981 us |   0.06 |     0.00 |
+|   CreateDictUnorderedSeq |   160.1 us |   1.445 us |   1.281 us |   0.07 |     0.00 |
+|    CreateMapOrderedArray | 2,186.3 us |  58.578 us |  48.915 us |   1.00 |     0.00 |
+|  CreateMapUnorderedArray | 3,106.1 us | 237.683 us | 700.814 us |   1.42 |     0.32 |
+|     CreateMapOrderedList | 3,336.1 us | 230.302 us | 679.052 us |   1.53 |     0.31 |
+|   CreateMapUnorderedList | 3,640.4 us | 123.499 us | 360.253 us |   1.67 |     0.17 |
+|      CreateMapOrderedSeq | 4,090.0 us | 229.331 us | 676.187 us |   1.87 |     0.31 |
+|    CreateMapUnorderedSeq | 4,175.0 us | 171.565 us | 500.464 us |   1.91 |     0.23 |
 
 
 ## Sets
