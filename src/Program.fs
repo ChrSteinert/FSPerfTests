@@ -4,7 +4,7 @@ open Argu
 
 open BenchmarkDotNet.Running
 open BenchmarkDotNet.Exporters
-open ResultsVsExceptions
+
 open System
 
 type CliArguments =
@@ -15,6 +15,7 @@ type CliArguments =
 | Options
 | ResultsVsExceptions
 | SubArrays
+| StringBuilder
     interface IArgParserTemplate 
         with
             member this.Usage =
@@ -35,6 +36,7 @@ let main _ =
             | Options -> BenchmarkRunner.Run<Options.OptionValues> () :: BenchmarkRunner.Run<Options.OptionReferences> () :: acc
             | ResultsVsExceptions -> BenchmarkRunner.Run<ResultsVsExceptions.ResultsVsExceptions> () :: acc
             | SubArrays -> BenchmarkRunner.Run<SubArrays.SubArrays> () :: acc
+            | StringBuilder -> BenchmarkRunner.Run<StringBuilder.StringBuilder> () :: acc
         ) []
     if not (List.isEmpty benchmarks) then
         benchmarks |> List.iter (fun summary -> AsciiDocExporter.Default.ExportToLog(summary, BenchmarkDotNet.Loggers.ConsoleLogger.Default))
