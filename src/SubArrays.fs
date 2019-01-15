@@ -28,5 +28,5 @@ type SubArrays () =
     member __.ForCopy () =
         let target : byte array = Array.zeroCreate 1000
         for i = 5000 to 5999 do
-            target.[i - 5000] = array.[i]
+            target.[i - 5000] <- array.[i]
         target
